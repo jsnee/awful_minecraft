@@ -2,6 +2,14 @@
 execute as @p at @s run scoreboard players add @s RNG 1
 scoreboard players set @a[scores={RNG=100..}] RNG 0
 
+#randomly set blocks to powder snow
+execute as @p at @s[scores={RNG=..2}] if block ~ ~ ~ minecraft:snow run fill ~ ~ ~ ~ ~-1 ~ minecraft:powder_snow
+
+#cobweb drop fakeout
+execute as @p at @s[predicate=snoeyz:standing_on_netherrack_in_nether,scores={last_rest=30000..30100,RNG=1},tag=!cobweb_drop] if block ~ ~-2 ~ minecraft:air run function snoeyz:begin_cobweb_drop
+execute as @p at @s[predicate=snoeyz:standing_on_netherrack_in_nether,scores={last_rest=24000..24100,RNG=1},tag=!cobweb_drop] if block ~ ~-2 ~ minecraft:air run function snoeyz:begin_cobweb_drop
+execute as @p at @s[tag=cobweb_drop] if block ~ ~ ~ minecraft:air run execute as @e[type=armor_stand,tag=cobweb_drop_location] run function snoeyz:end_cobweb_drop
+
 #tick down fake creepers
 execute as @e[type=creeper,tag=FakeCreeper0] run tp @s ~ ~-1000 ~
 execute as @e[type=creeper,tag=FakeCreeper1] run tag @s add FakeCreeper0
@@ -29,11 +37,8 @@ execute as @e[type=creeper,tag=FakeCreeper22] run tag @s add FakeCreeper21
 execute as @e[type=creeper,tag=FakeCreeper23] run tag @s add FakeCreeper22
 execute as @e[type=creeper,tag=FakeCreeper24] run tag @s add FakeCreeper23
 execute as @e[type=creeper,tag=FakeCreeper25] run tag @s add FakeCreeper24
-execute as @e[type=creeper,tag=FakeCreeper26] run tag @s add FakeCreeper25
-execute as @e[type=creeper,tag=FakeCreeper27] run tag @s add FakeCreeper26
-execute as @e[type=creeper,tag=FakeCreeper28] run tag @s add FakeCreeper27
-execute as @e[type=creeper,tag=FakeCreeper29] run tag @s add FakeCreeper28
-execute as @e[type=creeper,tag=FakeCreeper30] run tag @s add FakeCreeper29
+
+#spawn fake creeper
 execute as @p at @s[scores={chest_opened=1..,RNG=..5}] run function snoeyz:fake_creeper
 execute as @p at @s[scores={barrel_opened=1..,RNG=..5}] run function snoeyz:fake_creeper
 execute as @p at @s[scores={ender_chest_opened=1..,RNG=..5}] run function snoeyz:fake_creeper

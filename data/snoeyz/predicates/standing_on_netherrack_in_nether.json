@@ -1,0 +1,15 @@
+{
+    "condition": "minecraft:entity_properties",
+    "entity": "this",
+    "predicate": {
+      "stepping_on": {
+        "dimension": "minecraft:the_nether",
+        "block": {
+          "blocks": [
+            "minecraft:netherrack"
+          ]
+        }
+      }
+    }
+  }
+  
