@@ -1,0 +1,1 @@
+summon minecraft:creeper ^ ^ ^0.1 {NoAI:1b,ignited:1b,Tags:["FakeCreeper25"]}
