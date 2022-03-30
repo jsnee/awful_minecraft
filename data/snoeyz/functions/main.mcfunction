@@ -65,18 +65,22 @@ execute as @p at @s[tag=tired_drop_trigger,scores={RNG=67..77}] run function sno
 execute as @p at @s[tag=tired_drop_trigger,scores={RNG=78..88}] run function snoeyz:drop_item_7
 execute as @p at @s[tag=tired_drop_trigger,scores={RNG=89..99}] run function snoeyz:drop_item_8
 
-
 #check for tool break plays
-execute as @p at @s[scores={deepslate_mined=1..,RNG=..1}] run playsound minecraft:item.shield.break player @s
-execute as @p at @s[scores={end_stone_mined=1..,RNG=..1}] run playsound minecraft:item.shield.break player @s
-
-#check for tool break plays
-execute as @p at @s[predicate=snoeyz:low_durability_diamond_pick,scores={deepslate_mined=1..,RNG=..5}] run playsound minecraft:item.shield.break player @s
 execute as @p at @s[predicate=snoeyz:low_durability_netherite_pick,scores={deepslate_mined=1..,RNG=..5}] run playsound minecraft:item.shield.break player @s
-execute as @p at @s[predicate=snoeyz:low_durability_diamond_pick,scores={netherrack_mined=1..,RNG=..5}] run playsound minecraft:item.shield.break player @s
 execute as @p at @s[predicate=snoeyz:low_durability_netherite_pick,scores={netherrack_mined=1..,RNG=..5}] run playsound minecraft:item.shield.break player @s
-execute as @p at @s[predicate=snoeyz:low_durability_diamond_pick,scores={end_stone_mined=1..,RNG=..5}] run playsound minecraft:item.shield.break player @s
 execute as @p at @s[predicate=snoeyz:low_durability_netherite_pick,scores={end_stone_mined=1..,RNG=..5}] run playsound minecraft:item.shield.break player @s
+execute as @p at @s[predicate=snoeyz:low_durability_diamond_pick,scores={deepslate_mined=1..,RNG=..5}] run playsound minecraft:item.shield.break player @s
+execute as @p at @s[predicate=snoeyz:low_durability_diamond_pick,scores={netherrack_mined=1..,RNG=..5}] run playsound minecraft:item.shield.break player @s
+execute as @p at @s[predicate=snoeyz:low_durability_diamond_pick,scores={end_stone_mined=1..,RNG=..5}] run playsound minecraft:item.shield.break player @s
+execute as @p at @s[predicate=snoeyz:low_durability_iron_pick,scores={deepslate_mined=1..,RNG=..5}] run playsound minecraft:item.shield.break player @s
+execute as @p at @s[predicate=snoeyz:low_durability_iron_pick,scores={netherrack_mined=1..,RNG=..5}] run playsound minecraft:item.shield.break player @s
+execute as @p at @s[predicate=snoeyz:low_durability_iron_pick,scores={end_stone_mined=1..,RNG=..5}] run playsound minecraft:item.shield.break player @s
+execute as @p at @s[predicate=snoeyz:low_durability_stone_pick,scores={deepslate_mined=1..,RNG=..5}] run playsound minecraft:item.shield.break player @s
+execute as @p at @s[predicate=snoeyz:low_durability_stone_pick,scores={netherrack_mined=1..,RNG=..5}] run playsound minecraft:item.shield.break player @s
+execute as @p at @s[predicate=snoeyz:low_durability_stone_pick,scores={end_stone_mined=1..,RNG=..5}] run playsound minecraft:item.shield.break player @s
+execute as @p at @s[predicate=snoeyz:low_durability_wooden_pick,scores={deepslate_mined=1..,RNG=..5}] run playsound minecraft:item.shield.break player @s
+execute as @p at @s[predicate=snoeyz:low_durability_wooden_pick,scores={netherrack_mined=1..,RNG=..5}] run playsound minecraft:item.shield.break player @s
+execute as @p at @s[predicate=snoeyz:low_durability_wooden_pick,scores={end_stone_mined=1..,RNG=..5}] run playsound minecraft:item.shield.break player @s
 
 
 #reset blocks mined scores
@@ -93,3 +97,4 @@ execute as @p at @s[scores={shulker_opened=1..}] run scoreboard players set @s s
 
 #boat troll
 execute as @e at @s[type=boat,tag=!boat_troll] run function snoeyz:boat_troll
+execute as @e[type=item] at @s if data entity @s {Item:{id:"minecraft:oak_boat"}} run kill @s

@@ -16,50 +16,38 @@
         "Name": "minecraft:dirt"
       }
     },
-    "sapling_provider": {
-      "type": "minecraft:simple_state_provider",
-      "state": {
-        "Name": "minecraft:birch_sapling",
-        "Properties": {
-          "stage": "0"
-        }
-      }
-    },
     "trunk_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {
-        "Name": "minecraft:birch_log",
-        "Properties": {
-          "axis": "y"
-        }
+        "Name": "minecraft:deepslate"
       }
     },
     "foliage_provider": {
       "type": "minecraft:simple_state_provider",
       "state": {
-        "Name": "minecraft:birch_leaves",
+        "Name": "minecraft:oak_leaves",
         "Properties": {
-          "persistent": "false",
+          "persistent": "true",
           "distance": "7"
         }
       }
     },
     "trunk_placer": {
-      "type": "minecraft:forking_trunk_placer",
-      "base_height": 13,
-      "height_rand_a": 1,
-      "height_rand_b": 10
+      "type": "minecraft:fancy_trunk_placer",
+      "base_height": 3,
+      "height_rand_a": 11,
+      "height_rand_b": 0
     },
     "foliage_placer": {
       "type": "minecraft:fancy_foliage_placer",
       "radius": 2,
-      "offset": 3,
+      "offset": 4,
       "height": 4
     },
     "decorators": [
       {
         "type": "minecraft:beehive",
-        "probability": 0.5
+        "probability": 0.02
       }
     ]
   }
