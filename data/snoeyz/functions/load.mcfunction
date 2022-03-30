@@ -7,6 +7,10 @@ scoreboard objectives add ender_chest_opened minecraft.custom:open_enderchest "E
 scoreboard objectives add shulker_opened minecraft.custom:open_shulker_box "Ender Chest Opened"
 scoreboard objectives add last_rest minecraft.custom:time_since_rest "Time Since Rest"
 scoreboard objectives add RNG dummy "RNG"
+scoreboard objectives add RAND dummy "MoarRng"
+scoreboard objectives add tired_drop_cooldown dummy "Tired Drop Cooldown"
+
+scoreboard objectives add snoeyz.ToD dummy "Time of Day"
 scoreboard objectives add snoeyz.last_rest_trigger dummy
-scoreboard players add .lock snoeyz.last_rest_trigger 0
+scoreboard players set .lock snoeyz.ToD 0
 scoreboard players set .lock snoeyz.last_rest_trigger 48000
