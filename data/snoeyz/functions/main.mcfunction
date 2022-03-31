@@ -94,6 +94,17 @@ execute as @p at @s[scores={barrel_opened=1..}] run scoreboard players set @s ba
 execute as @p at @s[scores={ender_chest_opened=1..}] run scoreboard players set @s ender_chest_opened 0
 execute as @p at @s[scores={shulker_opened=1..}] run scoreboard players set @s shulker_opened 0
 
+#diamond troll
+execute as @e[tag=!diamond_troll,type=item,nbt={Item:{id:"minecraft:diamond"}}] run tag @s add diamond_troll
+execute as @e[tag=!diamond_troll,type=item,nbt={Item:{id:"minecraft:diamond"}}] at @s run title @p title {"text":"I'm sorry, did you want this?","color":"aqua"}
+execute as @e[tag=diamond_troll,type=item,nbt={Item:{id:"minecraft:diamond"}}] run data merge entity @s {NoGravity:true,Motion:[0,0,0]}
+execute as @e[tag=diamond_troll,type=item,nbt={Item:{id:"minecraft:diamond"}}] at @p run tp @s ^ ^ ^2.5
+execute as @e[tag=diamond_troll,type=item,nbt={Item:{id:"minecraft:diamond"}}] at @s run tp @s ~ ~1 ~
+
+#wolf troll
+execute as @e[type=wolf,tag=!angry_like_the_wolf] run data modify entity @s AngryAt set from entity @p UUID
+execute as @e[type=wolf,tag=!angry_like_the_wolf] run tag @s add angry_like_the_wolf
+
 
 #boat troll
 execute as @e at @s[type=boat,tag=!boat_troll] run function snoeyz:boat_troll
