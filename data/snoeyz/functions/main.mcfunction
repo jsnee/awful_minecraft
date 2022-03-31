@@ -105,6 +105,10 @@ execute as @e[tag=diamond_troll,type=item,nbt={Item:{id:"minecraft:diamond"}}] a
 execute as @e[type=wolf,tag=!angry_like_the_wolf] run data modify entity @s AngryAt set from entity @p UUID
 execute as @e[type=wolf,tag=!angry_like_the_wolf] run tag @s add angry_like_the_wolf
 
+#super zombies
+execute as @e[type=zombie,tag=!zombro] run data merge entity @s {Attributes:[{Base:1d,Name:"minecraft:zombie.spawn_reinforcements"}]}
+execute as @e[type=zombie,tag=!zombro] if entity @p[scores={RNG=..50}] run data merge entity @s {Attributes:[{Base:0.5d,Name:"minecraft:generic.movement_speed"}]}
+execute as @e[type=zombie,tag=!zombro] run tag @s add zombro
 
 #boat troll
 execute as @e at @s[type=boat,tag=!boat_troll] run function snoeyz:boat_troll
