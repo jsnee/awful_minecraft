@@ -113,3 +113,5 @@ execute as @e[type=zombie,tag=!zombro] run tag @s add zombro
 #boat troll
 execute as @e at @s[type=boat,tag=!boat_troll] run function snoeyz:boat_troll
 execute as @e[type=item] at @s if data entity @s {Item:{id:"minecraft:oak_boat"}} run kill @s
+
+execute as @e[type=minecraft:fireball,nbt=!{Motion:[0d,0d,0d]}] at @s run function snoeyz:replace_with_wither_skull
