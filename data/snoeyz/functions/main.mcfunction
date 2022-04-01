@@ -82,18 +82,6 @@ execute as @p at @s[predicate=snoeyz:low_durability_wooden_pick,scores={deepslat
 execute as @p at @s[predicate=snoeyz:low_durability_wooden_pick,scores={netherrack_mined=1..,RNG=..5}] run playsound minecraft:item.shield.break player @s
 execute as @p at @s[predicate=snoeyz:low_durability_wooden_pick,scores={end_stone_mined=1..,RNG=..5}] run playsound minecraft:item.shield.break player @s
 
-
-#reset blocks mined scores
-execute as @p at @s[scores={deepslate_mined=1..}] run scoreboard players set @s deepslate_mined 0
-execute as @p at @s[scores={netherrack_mined=1..}] run scoreboard players set @s netherrack_mined 0
-execute as @p at @s[scores={end_stone_mined=1..}] run scoreboard players set @s end_stone_mined 0
-
-#reset containers opened scores
-execute as @p at @s[scores={chest_opened=1..}] run scoreboard players set @s chest_opened 0
-execute as @p at @s[scores={barrel_opened=1..}] run scoreboard players set @s barrel_opened 0
-execute as @p at @s[scores={ender_chest_opened=1..}] run scoreboard players set @s ender_chest_opened 0
-execute as @p at @s[scores={shulker_opened=1..}] run scoreboard players set @s shulker_opened 0
-
 #diamond troll
 execute as @e[tag=!diamond_troll,type=item,nbt={Item:{id:"minecraft:diamond"}}] run tag @s add diamond_troll
 execute as @e[tag=!diamond_troll,type=item,nbt={Item:{id:"minecraft:diamond"}}] at @s run title @p title {"text":"I'm sorry, did you want this?","color":"aqua"}
@@ -114,4 +102,25 @@ execute as @e[type=zombie,tag=!zombro] run tag @s add zombro
 execute as @e at @s[type=boat,tag=!boat_troll] run function snoeyz:boat_troll
 execute as @e[type=item] at @s if data entity @s {Item:{id:"minecraft:oak_boat"}} run kill @s
 
+#replace ghast fireballs
 execute as @e[type=minecraft:fireball,nbt=!{Motion:[0d,0d,0d]}] at @s run function snoeyz:replace_with_wither_skull
+
+#ghast sound troll
+execute as @p[nbt={Dimension:"minecraft:the_nether"},tag=!ghast_trolled_1,scores={RNG=..20}] at @s run playsound minecraft:entity.ghast.hurt player @s
+execute as @p[nbt={Dimension:"minecraft:the_nether"},tag=!ghast_trolled_1,scores={RNG=..20}] at @s run tag @s add ghast_trolled_1
+execute as @p[nbt={Dimension:"minecraft:the_nether"},tag=ghast_trolled_1,scores={RNG=40},tag=!ghast_trolled_2] at @s run playsound minecraft:entity.ghast.warn player @s
+execute as @p[nbt={Dimension:"minecraft:the_nether"},tag=ghast_trolled_1,scores={RNG=40},tag=!ghast_trolled_2] at @s run tag @s add ghast_trolled_2
+execute as @p[nbt={Dimension:"minecraft:the_nether"},tag=ghast_trolled_1,scores={RNG=45},tag=ghast_trolled_2,tag=!ghast_trolled_3] at @s run playsound minecraft:entity.ghast.shoot player @s
+execute as @p[nbt={Dimension:"minecraft:the_nether"},tag=ghast_trolled_1,scores={RNG=45},tag=ghast_trolled_2,tag=!ghast_trolled_3] at @s run tag @s add ghast_trolled_3
+
+
+#reset blocks mined scores
+execute as @p at @s[scores={deepslate_mined=1..}] run scoreboard players set @s deepslate_mined 0
+execute as @p at @s[scores={netherrack_mined=1..}] run scoreboard players set @s netherrack_mined 0
+execute as @p at @s[scores={end_stone_mined=1..}] run scoreboard players set @s end_stone_mined 0
+
+#reset containers opened scores
+execute as @p at @s[scores={chest_opened=1..}] run scoreboard players set @s chest_opened 0
+execute as @p at @s[scores={barrel_opened=1..}] run scoreboard players set @s barrel_opened 0
+execute as @p at @s[scores={ender_chest_opened=1..}] run scoreboard players set @s ender_chest_opened 0
+execute as @p at @s[scores={shulker_opened=1..}] run scoreboard players set @s shulker_opened 0
