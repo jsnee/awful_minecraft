@@ -1,3 +1,5 @@
+execute if score @p world_time matches ..12000 run time set 12000
+
 execute store result score .lock snoeyz.ToD run time query daytime
 kill @e[type=armor_stand,tag=fake_deepslate]
 

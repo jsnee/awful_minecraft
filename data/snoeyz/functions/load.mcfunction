@@ -14,6 +14,7 @@ scoreboard objectives add health health "Health"
 scoreboard objectives add was_killed_by_creeper minecraft.killed_by:creeper "Was Killed By Creeper"
 scoreboard objectives add was_killed_by_enderman minecraft.killed_by:enderman "Was Killed By Enderman"
 scoreboard objectives add was_killed minecraft.custom:deaths "Was Killed"
+scoreboard objectives add world_time minecraft.custom:total_world_time "Total World_Time"
 
 scoreboard objectives add snoeyz.piglinCount dummy "Piglin Count"
 scoreboard objectives add snoeyz.bruteFrequency dummy "Piglin Brute Frequency"
