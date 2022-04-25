@@ -9,7 +9,15 @@ scoreboard objectives add last_rest minecraft.custom:time_since_rest "Time Since
 scoreboard objectives add RNG dummy "RNG"
 scoreboard objectives add RAND dummy "MoarRng"
 scoreboard objectives add tired_drop_cooldown dummy "Tired Drop Cooldown"
+scoreboard objectives add try_give_deepslate_cooldown dummy "Try Give Deepslate Cooldown"
+scoreboard objectives add health health "Health"
+scoreboard objectives add was_killed_by_creeper minecraft.killed_by:creeper "Was Killed By Creeper"
+scoreboard objectives add was_killed_by_enderman minecraft.killed_by:enderman "Was Killed By Enderman"
+scoreboard objectives add was_killed minecraft.custom:deaths "Was Killed"
 
+scoreboard objectives add snoeyz.piglinCount dummy "Piglin Count"
+scoreboard objectives add snoeyz.bruteFrequency dummy "Piglin Brute Frequency"
+scoreboard players set .lock snoeyz.bruteFrequency 50
 scoreboard objectives add snoeyz.ToD dummy "Time of Day"
 scoreboard objectives add snoeyz.last_rest_trigger dummy
 scoreboard players set .lock snoeyz.ToD 0
