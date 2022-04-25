@@ -17,6 +17,17 @@ scoreboard players set @a[scores={RNG=100..}] RNG 0
 scoreboard players operation @a RAND += .lock snoeyz.ToD
 scoreboard players operation @a RAND %= @a RNG
 
+#end fight
+execute as @e[type=minecraft:piglin_brute,tag=zombification_immune,nbt={TimeInOverworld:100}] run data modify entity @s TimeInOverworld set value 0
+execute at @a[scores={RNG=25},nbt={Dimension:"minecraft:the_end"}] if entity @e[type=dragon_fireball] as @e[type=enderman,limit=1] run function snoeyz:replace_entity_with_piglin_brute
+execute at @a[scores={RNG=75},nbt={Dimension:"minecraft:the_end"}] if entity @e[type=dragon_fireball] as @e[type=enderman,limit=1] run function snoeyz:replace_entity_with_piglin_brute
+tag @e[tag=replaced_with_brute] add zombification_immune
+tag @e[tag=replaced_with_brute] remove replaced_with_brute
+execute in the_end if block 0 67 0 #beds as @a[nbt={Dimension:"minecraft:the_end"}] unless score @s dragon_bedding_warning matches 3.. run function snoeyz:warn_bedding_dragon
+execute in the_end if block 0 67 0 #beds as @a[nbt={Dimension:"minecraft:the_end"}] if score @s dragon_bedding_warning matches 3.. run function snoeyz:bed_place_anger_endermen
+
+scoreboard players reset @a[scores={was_killed=1..}] dragon_bedding_warning
+
 #tick tired drop troll
 scoreboard players remove @a[scores={tired_drop_cooldown=1..}] tired_drop_cooldown 1
 tag @a[scores={tired_drop_cooldown=0}] remove tired_drop_cooldown
@@ -171,3 +182,21 @@ execute as @a at @s[scores={chest_opened=1..}] run scoreboard players set @s che
 execute as @a at @s[scores={barrel_opened=1..}] run scoreboard players set @s barrel_opened 0
 execute as @a at @s[scores={ender_chest_opened=1..}] run scoreboard players set @s ender_chest_opened 0
 execute as @a at @s[scores={shulker_opened=1..}] run scoreboard players set @s shulker_opened 0
+
+#reset beds used
+execute as @a at @s[scores={white_bed_used=1..}] run scoreboard players set @s white_bed_used 0
+execute as @a at @s[scores={red_bed_used=1..}] run scoreboard players set @s red_bed_used 0
+execute as @a at @s[scores={blue_bed_used=1..}] run scoreboard players set @s blue_bed_used 0
+execute as @a at @s[scores={cyan_bed_used=1..}] run scoreboard players set @s cyan_bed_used 0
+execute as @a at @s[scores={gray_bed_used=1..}] run scoreboard players set @s gray_bed_used 0
+execute as @a at @s[scores={lime_bed_used=1..}] run scoreboard players set @s lime_bed_used 0
+execute as @a at @s[scores={pink_bed_used=1..}] run scoreboard players set @s pink_bed_used 0
+execute as @a at @s[scores={green_bed_used=1..}] run scoreboard players set @s green_bed_used 0
+execute as @a at @s[scores={black_bed_used=1..}] run scoreboard players set @s black_bed_used 0
+execute as @a at @s[scores={brown_bed_used=1..}] run scoreboard players set @s brown_bed_used 0
+execute as @a at @s[scores={orange_bed_used=1..}] run scoreboard players set @s orange_bed_used 0
+execute as @a at @s[scores={purple_bed_used=1..}] run scoreboard players set @s purple_bed_used 0
+execute as @a at @s[scores={yellow_bed_used=1..}] run scoreboard players set @s yellow_bed_used 0
+execute as @a at @s[scores={magenta_bed_used=1..}] run scoreboard players set @s magenta_bed_used 0
+execute as @a at @s[scores={light_blue_bed_used=1..}] run scoreboard players set @s light_blue_bed_used 0
+execute as @a at @s[scores={light_gray_bed_used=1..}] run scoreboard players set @s light_gray_bed_used 0
